@@ -24,6 +24,7 @@ class AuthController extends GetxController {
       isSigningIn.value = true;
       print("🔵 Signing in...");
 
+      await _googleSignIn.signOut();
       final googleUser = await _googleSignIn.signIn();
       if (googleUser == null) {
         print("🟡 Google user is null (cancelled)");
