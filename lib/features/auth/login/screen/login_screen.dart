@@ -14,7 +14,6 @@ class LoginScreen extends StatelessWidget {
           if (authController.isSigningIn.value) {
             return CircularProgressIndicator();
           }
-
           return ElevatedButton(
             onPressed: () {
               authController.signInWithGoogle();

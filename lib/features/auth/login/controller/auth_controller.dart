@@ -3,18 +3,18 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:new_practice/routes/app_routes.dart';
 
-class AuthController extends GetxController{
+class AuthController extends GetxController {
   var isSigningIn = false.obs;
 
   final FirebaseAuth _auth = FirebaseAuth.instance;
-  final GoogleSignIn _googleSignIn = GoogleSignIn();
-  
+  final GoogleSignIn _googleSignIn = GoogleSignIn(scopes: ['email', 'profile']);
+
   User? get user => _auth.currentUser;
-  
+
   @override
-  void onInit(){
+  void onInit() {
     super.onInit();
-    if (_auth.currentUser  != null){
+    if (_auth.currentUser != null) {
       Future.microtask(() => Get.offAllNamed('/home'));
     }
   }
@@ -22,31 +22,30 @@ class AuthController extends GetxController{
   Future<void> signInWithGoogle() async {
     try {
       isSigningIn.value = true;
+      print("🔵 Signing in...");
 
       final googleUser = await _googleSignIn.signIn();
-      if (googleUser == null){
+      if (googleUser == null) {
+        print("🟡 Google user is null (cancelled)");
         isSigningIn.value = false;
         return;
       }
+      print('user: ${googleUser.displayName}');
 
       final googleAuth = await googleUser.authentication;
+      print('auth: ${googleAuth.idToken}');
       final credential = GoogleAuthProvider.credential(
         accessToken: googleAuth.accessToken,
         idToken: googleAuth.idToken,
       );
 
-      await _auth.signInWithCredential(credential);
+      await FirebaseAuth.instance.signInWithCredential(credential);
       Get.offAllNamed(AppRoutes.home);
     } catch (e) {
+      print("🔴 Sign-in error: $e");
       Get.snackbar('Error', "Google Sign-In failed: $e");
-    } finally{
+    } finally {
       isSigningIn.value = false;
-    }
-
-    void signOut() async {
-      await _googleSignIn.signOut();
-      await _auth.signOut();
-      Get.offAllNamed(AppRoutes.login);
     }
   }
 }
