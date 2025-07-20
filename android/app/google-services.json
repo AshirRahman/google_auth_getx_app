@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "821543530346",
+    "project_id": "authgetxapp",
+    "storage_bucket": "authgetxapp.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:821543530346:android:69434c63f78c9d24ca3f13",
+        "android_client_info": {
+          "package_name": "com.example.google_auth_getx_app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD4zXE2R7FNAe5X-UYoQ1j15CbBYfgPqsk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:821543530346:android:0b514ac385dc5878ca3f13",
+        "android_client_info": {
+          "package_name": "com.example.new_practice"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD4zXE2R7FNAe5X-UYoQ1j15CbBYfgPqsk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
