@@ -12,6 +12,7 @@ class LoginScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: GlobalColorStyle.background,
       appBar: AppBar(
         title: Text(
           'Login with Google',
