@@ -33,7 +33,3 @@ class CustomButton extends StatelessWidget {
     );
   }
 }
-
-class CustomLogo {
-
-}
