@@ -1,9 +1,9 @@
 import 'package:get/get.dart';
-import '../../../features/auth/login/controller/auth_controller.dart';
+import '../../../features/auth/login/controller/google_auth_controller.dart';
 
 class InitialBindings extends Bindings {
   @override
   void dependencies() {
-    Get.put(AuthController());
+    Get.put(GoogleAuthController());
   }
 }
