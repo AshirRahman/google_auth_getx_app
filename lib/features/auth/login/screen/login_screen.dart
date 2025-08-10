@@ -2,10 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:new_practice/core/common/styles/global_color_style.dart';
 import '../../../../core/common/button/custom_button.dart';
-import '../controller/auth_controller.dart';
+import '../controller/google_auth_controller.dart';
 
 class LoginScreen extends StatelessWidget {
-  final AuthController authController = Get.find<AuthController>();
+  final GoogleAuthController authController = Get.find<GoogleAuthController>();
 
    LoginScreen({super.key});
 
@@ -28,7 +28,7 @@ class LoginScreen extends StatelessWidget {
           }
           return CustomButton(
             authController: authController,
-            logo: 'assets/images/logo/google.png',
+            logo: 'assets/images/logo/google.png', onPressed: () {  },
           );
         }),
       ),

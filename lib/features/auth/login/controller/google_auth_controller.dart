@@ -3,18 +3,18 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:new_practice/routes/app_routes.dart';
 
-class AuthController extends GetxController {
+class GoogleAuthController extends GetxController {
   var isSigningIn = false.obs;
 
-  final FirebaseAuth _auth = FirebaseAuth.instance;
+  final FirebaseAuth _firebaseAuth = FirebaseAuth.instance;
   final GoogleSignIn _googleSignIn = GoogleSignIn(scopes: ['email', 'profile']);
 
-  User? get user => _auth.currentUser;
+  User? get user => _firebaseAuth.currentUser;
 
   @override
   void onInit() {
     super.onInit();
-    if (_auth.currentUser != null) {
+    if (_firebaseAuth.currentUser != null) {
       Future.microtask(() => Get.offAllNamed('/home'));
     }
   }
