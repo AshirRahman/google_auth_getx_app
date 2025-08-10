@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:new_practice/core/common/styles/global_color_style.dart';
-import 'package:new_practice/features/auth/login/controller/auth_controller.dart';
+import 'package:new_practice/features/auth/login/controller/google_auth_controller.dart';
 import '../../auth/signout/controller/signout.dart';
 
 
 class HomeScreen extends StatelessWidget {
   HomeScreen({super.key});
 
-  final AuthController authController = Get.find<AuthController>();
+  final GoogleAuthController authController = Get.find<GoogleAuthController>();
   final SignOutService signOutService = SignOutService();
 
   @override

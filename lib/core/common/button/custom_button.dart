@@ -1,29 +1,26 @@
 import 'package:flutter/material.dart';
-
-import '../../../features/auth/login/controller/auth_controller.dart';
+import 'package:new_practice/features/auth/login/controller/google_auth_controller.dart';
 
 class CustomButton extends StatelessWidget {
+  final String logo;
+  final VoidCallback onPressed;
+
   const CustomButton({
     super.key,
-    required this.authController, required this.logo,
-
+    required this.logo,
+    required this.onPressed, required GoogleAuthController authController,
   });
-
-  final AuthController authController;
-  final String logo;
 
   @override
   Widget build(BuildContext context) {
     return ElevatedButton(
-      onPressed: () {
-        authController.signInWithGoogle();
-      },
+      onPressed: onPressed,
       style: ElevatedButton.styleFrom(
         backgroundColor: Colors.white,
         shape: const CircleBorder(),
         elevation: 6,
         shadowColor: Colors.grey.withOpacity(0.5),
-        padding: const EdgeInsets.all(3), // Adjusts the size around the logo
+        padding: const EdgeInsets.all(3),
       ),
       child: Image.asset(
         logo,
